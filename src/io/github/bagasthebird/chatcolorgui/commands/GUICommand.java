@@ -13,14 +13,14 @@ public class GUICommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-		if (sender instanceof Player) {
+		if (sender instanceof Player) { // jika pengirim command adalah player
 
-			Player player = (Player) sender;
-			Inventory getGUI = ChatColorGUI.getGUI();
+			Player player = (Player) sender; // player
+			Inventory getGUI = ChatColorGUI.getGUI(); // ambil gui yang telah dibuat di class ChatColorGUI
 			
-			player.openInventory(getGUI);
+			player.openInventory(getGUI); // buka GUI
 			
 		}
-		return true;
+		return true; // sukses
 	}
 }
