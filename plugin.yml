@@ -1,0 +1,13 @@
+main: io.github.bagasthebird.chatcolorgui.Main
+name: ChatColorGUI
+version: 1.0
+author: Bagaskara
+description: Private use for Orthexa
+commands:
+  chatcolor:
+    description: Open chat color gui.
+    usage: /chatcolor
+    permission: chatcolor.gui
+    permission-message: You don't have the chatcolor.gui permission.
+
+
