@@ -16,29 +16,29 @@ public class InventoryInteract implements Listener {
 	@EventHandler
 	public void OnInventoryClick(InventoryClickEvent event) {
 
-		Player player = (Player) event.getWhoClicked();
-		Inventory inventory = event.getInventory();
-		ItemStack clicked = event.getCurrentItem();
-		FileConfiguration config = Main.instance.getConfig();
-		Main plugin = Main.instance;
+		Player player = (Player) event.getWhoClicked(); // player
+		Inventory inventory = event.getInventory(); // inventory
+		ItemStack clicked = event.getCurrentItem(); // item yang di klik
+		FileConfiguration config = Main.instance.getConfig(); // mengambil config
+		Main plugin = Main.instance; // instansi Main
 
-		if (inventory.getName().contains(ChatColor.translateAlternateColorCodes('&', "&8&lChoose your color:"))) {
+		if (inventory.getName().contains(ChatColor.translateAlternateColorCodes('&', "&8&lChoose your color:"))) { // jika inventory memiliki nama "&8&lChoose your color:"
 			
-	        if (clicked == null || clicked.hasItemMeta() == false || clicked.getItemMeta().hasDisplayName() == false) {
-	            return;
+	        if (clicked == null || clicked.hasItemMeta() == false || clicked.getItemMeta().hasDisplayName() == false) { // jika item yang diklik adalah udara/ tidak memiliki itemmeta/ tidak memiliki nama
+	            return; // maka jangan lakukan apapun
 	        }
 	        
-			String itemname = ChatColor.stripColor(clicked.getItemMeta().getDisplayName());
+			String itemname = ChatColor.stripColor(clicked.getItemMeta().getDisplayName()); // mengambil nama item yang ditekan
 
-			event.setCancelled(true); // cancel click
+			event.setCancelled(true); // batalkan klik, kembalikan item ke dalam inventory
 
-			switch (itemname) {
-			case "Pink":
-				config.set(player.getName(), "&d");
+			switch (itemname) { 
+			case "Pink": // jika bernama "Pink"
+				config.set(player.getName(), "&d"); // simpan config
 				plugin.saveConfig();
 				break;
-			case "Light Blue":
-				config.set(player.getName(), "&b");
+			case "Light Blue": // jika bernama "Light Blue"
+				config.set(player.getName(), "&b"); // simpan config
 				plugin.saveConfig();
 				break;
 			case "Yellow":
@@ -87,8 +87,8 @@ public class InventoryInteract implements Listener {
 				break;
 			}
 			
-			player.closeInventory();
-			player.sendMessage(itemname + " is now your chat color.");
+			player.closeInventory(); // tutup inventory
+			player.sendMessage(itemname + " is now your chat color."); // kirim pesan sukses
 		}
 	}
 
