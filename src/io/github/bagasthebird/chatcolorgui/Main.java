@@ -9,20 +9,20 @@ import io.github.bagasthebird.chatcolorgui.listeners.OnPlayerChatEvent;
 
 public class Main extends JavaPlugin {
 
-	public static Main instance;
+	public static Main instance; // instansi dari main
 
 	@Override
-	public void onEnable() {
-		instance = this;
-		this.saveDefaultConfig();
-		Bukkit.getServer().getPluginManager().registerEvents(new InventoryInteract(), this);
-		Bukkit.getServer().getPluginManager().registerEvents(new OnPlayerChatEvent(), this);
+	public void onEnable() { // saat plugin nyala
+		instance = this; // initialisasi dari instansi
+		this.saveDefaultConfig(); // membuat config
+		Bukkit.getServer().getPluginManager().registerEvents(new InventoryInteract(), this); // mendaftarkan event dalam class InventoryInteract
+		Bukkit.getServer().getPluginManager().registerEvents(new OnPlayerChatEvent(), this); // mendaftarkan event dalam class OnPlayerChatEvent
 
-		this.getCommand("chatcolor").setExecutor(new GUICommand());
+		this.getCommand("chatcolor").setExecutor(new GUICommand()); // mendaftarkan command 
 	}
 
 	@Override
-	public void onDisable() {
+	public void onDisable() { // saat plugin shut down
 
 	}
 }
