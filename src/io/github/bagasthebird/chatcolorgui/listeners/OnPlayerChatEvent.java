@@ -12,11 +12,11 @@ public class OnPlayerChatEvent implements Listener {
 	@EventHandler
 	public void onPlayerChatEvent(AsyncPlayerChatEvent event) {
 		
-		String playerName = event.getPlayer().getName();
-		FileConfiguration config = Main.instance.getConfig();
+		String playerName = event.getPlayer().getName(); // nama player
+		FileConfiguration config = Main.instance.getConfig(); // config
 
-		if (config.contains(playerName)) {
-			event.setMessage(ChatColor.translateAlternateColorCodes('&', config.getString(playerName) + event.getMessage()));
+		if (config.contains(playerName)) { // jika di config tercantum nama player
+			event.setMessage(ChatColor.translateAlternateColorCodes('&', config.getString(playerName) + event.getMessage())); // maka kirim pesan bersama kode warna
 		}
 	}
 }
